@@ -167,4 +167,53 @@ amcl.launch配置文件参数详解
 目前的定位还是依赖于AMCL，cartographer关于定位的部分网上大部分搜出来的是纯定位，所以关于这部分继续用Cartographer+AMCL+move_base实现机器人的移动。
 
 
+-----------------------------------------
+3. Move_base机器人移动存在问题与解决方法
+-----------------------------------------
 
+1. 机器人移动过程中抖动
+--------------------------
+
+.. code-block:: shell
+    :linenos:
+
+    [ERROR] [1727264276.043005216]: Global Frame: odom Plan Frame size 44: map
+
+    [ WARN] [1727264276.043034837]: Could not transform the global plan to the frame of the controller
+    [ERROR] [1727264276.043056281]: Could not get local plan
+    [ INFO] [1727264276.242865595]: Got new plan
+    [ INFO] [1727264277.242824666]: Got new plan
+    [ERROR] [1727264277.242928682]: Extrapolation Error: Lookup would require extrapolation 0.000251906s into the future.  Requested time 1727264277.240116358 but the latest data is at time 1727264277.239864588, when looking up transform from frame [odom] to frame [map]
+
+    [ERROR] [1727264277.242954904]: Global Frame: odom Plan Frame size 26: map
+
+    [ WARN] [1727264277.242979373]: Could not transform the global plan to the frame of the controller
+    [ERROR] [1727264277.242996166]: Could not get local plan
+    [ INFO] [1727264277.442827636]: Got new plan
+    [ERROR] [1727264277.442935681]: Extrapolation Error: Lookup would require extrapolation 0.002063299s into the future.  Requested time 1727264277.431960106 but the latest data is at time 1727264277.429896832, when looking up transform from frame [odom] to frame [map]
+
+    [ERROR] [1727264277.442960075]: Global Frame: odom Plan Frame size 21: map
+
+    [ WARN] [1727264277.442981119]: Could not transform the global plan to the frame of the controller
+    [ERROR] [1727264277.442999029]: Could not get local plan
+    [ INFO] [1727264277.642870484]: Got new plan
+    [ INFO] [1727264278.642865193]: Got new plan
+    [ INFO] [1727264279.242904882]: Goal reached
+
+
+**解决方法：**
+
+.. image::  ../image/Q1A1.png
+
+.. image::  ../image/Q1A2.png
+
+.. image::  ../image/Q1A3.png
+
+1. 机器人移动到目标点附近抖动
+----------------------------
+
+.. image::  ../image/Q2.png
+
+**解决方法：**
+
+TODO
